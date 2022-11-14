@@ -1,0 +1,12 @@
+<h1>New game!</h1>
+
+<p><%= @letters.join(" ") %></p>
+
+<p>What's the longest word you can find?<p>
+<form action="/score" method="post" data-turbo="false">
+  <label for="guess">Your answer</label>
+  <input type="text" name="guess" id="guess" placeholder="Write here" autofocus/>
+  <input type="submit" value="Play" />
+  <%= hidden_field_tag :letters, @letters %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
